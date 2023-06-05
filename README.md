@@ -111,7 +111,7 @@ Congratulations! You have successfully built a simple Celo mobile app that retri
 Remember to implement authentication, error handling, and more complex smart contract interactions for real-world applications. Ensure that you never expose sensitive data, like private keys, within your application code.
 
 ## License
-This tutorial is provided under the **MIT License.
+This tutorial is provided under the **MIT License**.
 
 
 Feel free to customize and modify the `README.md` file as per your requirements.
