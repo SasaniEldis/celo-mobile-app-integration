@@ -1,25 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, Button } from 'react-native';
-import { getBalance } from './CeloClient';
+const express = require('express');
+const { getBalance } = require('./CeloClient');
 
-const App = () => {
-  const [balance, setBalance] = useState(null);
+const app = express();
 
-  const fetchBalance = async () => {
-    const celoBalance = await getBalance('0xYourCeloAddress');
-    setBalance(celoBalance);
-  };
+app.get('/balance', async (req, res) => {
+  const celoBalance = await getBalance('OxYourCeloAddress');
+  res.send(`Your Celo Balance: ${celoBalance}`);
+});
 
-  useEffect(() => {
-    fetchBalance();
-  }, []);
-
-  return (
-    <View>
-      <Text>Your Celo Balance: {balance}</Text>
-      <Button title="Refresh" onPress={fetchBalance} />
-    </View>
-  );
-};
-
-export default App;
+app.listen(3000, () => console.log('Server started on port 3000'));
